@@ -13,6 +13,10 @@ public class WidthTest {
 
     public record TestCase(String description, String source, String expected, int width) {}
 
+    @Test
+    public void t() {
+        Width.strip("\u001b[31mhello\u001b[0m");
+    }
     public static List<TestCase> testCases() {
         return List.of(
                 new TestCase("empty", "", "", 0),

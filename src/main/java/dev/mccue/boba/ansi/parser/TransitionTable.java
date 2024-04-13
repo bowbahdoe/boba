@@ -3,6 +3,7 @@ package dev.mccue.boba.ansi.parser;
 import dev.mccue.boba.Charm;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Charm("https://github.com/charmbracelet/x/blob/main/exp/term/ansi/parser/transition_table.go")
 public final class TransitionTable {
@@ -44,9 +45,7 @@ public final class TransitionTable {
         var table = new TransitionTable();
 
         // Anywhere
-        for (byte stateValue = State.GROUND.value; stateValue <= State.UTF8.value; stateValue++) {
-            var state = State.fromValue(stateValue)
-                    .orElseThrow();
+        for (var state : State.values()) {
             // Anywhere -> Ground
             table.addMany(new int[]{0x18, 0x1a, 0x99, 0x9a}, state, Action.EXECUTE, State.GROUND);
             table.addRange(0x80, 0x8F, state, Action.EXECUTE, State.GROUND);
@@ -112,8 +111,11 @@ public final class TransitionTable {
         table.addOne(']', State.ESCAPE, Action.START, State.OSC_STRING);
 
         // Sos_pm_apc_string
-        for (byte stateVal = State.SOS_STRING.value; stateVal < State.APC_STRING.value; stateVal++) {
-            var state = State.fromValue(stateVal).orElseThrow(IllegalStateException::new);
+        for (var state : List.of(
+                State.SOS_STRING,
+                State.PM_STRING,
+                State.APC_STRING
+        )) {
             table.addRange(0x00, 0x17, state, Action.PUT, state);
             table.addOne(0x19, state, Action.PUT, state);
             table.addRange(0x1C, 0x1F, state, Action.PUT, state);
