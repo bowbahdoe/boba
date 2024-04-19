@@ -1,7 +1,8 @@
 extract:
     jextract \
         --output src/main/java \
-        --target-package dev.mccue.boba.c \
+        --target-package dev.mccue.boba.c.mac \
+        --include-struct termios \
         --include-function ioctl \
         --include-function tcgetattr \
         --include-function tcsetattr \
@@ -54,11 +55,29 @@ extract:
         --include-constant ECHOCTL \
         --include-constant ECHOKE \
         --include-constant PENDIN \
+        --include-constant TIOCGETA \
+        --include-constant TIOCSETA \
+        --include-constant TCGETS \
+        --include-constant TCSETS \
+        --include-constant IGNBRK \
+        --include-constant BRKINT \
+        --include-constant PARMRK \
+        --include-constant ISTRIP \
+        --include-constant INLCR \
+        --include-constant IGNCR \
+        --include-constant ICRNL \
+        --include-constant IXON \
+        --include-constant OPOST \
+      	--include-constant ECHO \
+      	--include-constant ECHONL \
+      	--include-constant ICANON \
+      	--include-constant ISIG \
+      	--include-constant IEXTEN \
+      	--include-constant CSIZE \
+       	--include-constant PARENB \
+      	--include-constant CS8 \
+      	--include-constant VMIN \
+      	--include-constant VTIME \
+      	--include-constant TCGETS \
+      	--include-constant TCSETS \
         ioctl.h
-
-        jextract \
-            --output src/main/java \
-            --target-package dev.mccue.boba.c \
-            --include-function wcwidth \
-            --include-typedef wchar_t \
-            wcwidth.h
