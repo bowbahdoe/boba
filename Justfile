@@ -180,4 +180,7 @@ extract_windows:
         --include-function GetConsoleScreenBufferInfo \
         --include-function GetCurrentProcess \
         --include-function DuplicateHandle \
-        --include-constant DUPLICATE_SAME_ACCESS
+        --include-constant DUPLICATE_SAME_ACCESS \
+        --include-function GetStdHandle \
+        --include-constant STD_OUTPUT_HANDLE \
+        windows.h
