@@ -5,6 +5,7 @@ import dev.mccue.boba.ansi.parser.Action;
 import dev.mccue.boba.ansi.parser.Parser;
 import dev.mccue.boba.ansi.parser.State;
 import dev.mccue.boba.ansi.parser.TransitionTable;
+import dev.mccue.wcwidth.WCWidth;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
@@ -121,14 +122,8 @@ return buf.String()
     }
 
     public static int width(String s) {
-        return width(s, Locale.getDefault());
-    }
-
-    public static int width(String s, Locale locale) {
         var stripped = strip(s);
         return stripped.codePoints()
-                .reduce(0, (w, codePoint) -> w + WCWidth.wcwidth(codePoint));
+                .reduce(0, (w, codePoint) -> w + WCWidth.of(codePoint));
     }
-
-
 }
