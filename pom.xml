@@ -30,6 +30,11 @@
             <artifactId>osc52</artifactId>
             <version>0.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>dev.mccue</groupId>
+            <artifactId>wcwidth</artifactId>
+            <version>2024.05.17</version>
+        </dependency>
 
         <dependency>
             <groupId>com.ibm.icu</groupId>
