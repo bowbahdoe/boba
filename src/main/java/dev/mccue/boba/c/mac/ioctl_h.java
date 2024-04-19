@@ -68,24 +68,6 @@ public class ioctl_h {
     public static final AddressLayout C_POINTER = ValueLayout.ADDRESS
             .withTargetLayout(MemoryLayout.sequenceLayout(java.lang.Long.MAX_VALUE, JAVA_BYTE));
     public static final ValueLayout.OfLong C_LONG = ValueLayout.JAVA_LONG;
-    private static final int TCGETS = (int)21505L;
-    /**
-     * {@snippet lang=c :
-     * #define TCGETS 21505
-     * }
-     */
-    public static int TCGETS() {
-        return TCGETS;
-    }
-    private static final int TCSETS = (int)21506L;
-    /**
-     * {@snippet lang=c :
-     * #define TCSETS 21506
-     * }
-     */
-    public static int TCSETS() {
-        return TCSETS;
-    }
     private static final int EBADF = (int)9L;
     /**
      * {@snippet lang=c :
@@ -122,77 +104,77 @@ public class ioctl_h {
     public static int ENOTTY() {
         return ENOTTY;
     }
-    private static final int VINTR = (int)0L;
+    private static final int VEOF = (int)0L;
     /**
      * {@snippet lang=c :
-     * #define VINTR 0
-     * }
-     */
-    public static int VINTR() {
-        return VINTR;
-    }
-    private static final int VQUIT = (int)1L;
-    /**
-     * {@snippet lang=c :
-     * #define VQUIT 1
-     * }
-     */
-    public static int VQUIT() {
-        return VQUIT;
-    }
-    private static final int VERASE = (int)2L;
-    /**
-     * {@snippet lang=c :
-     * #define VERASE 2
-     * }
-     */
-    public static int VERASE() {
-        return VERASE;
-    }
-    private static final int VEOF = (int)4L;
-    /**
-     * {@snippet lang=c :
-     * #define VEOF 4
+     * #define VEOF 0
      * }
      */
     public static int VEOF() {
         return VEOF;
     }
-    private static final int VTIME = (int)5L;
+    private static final int VEOL = (int)1L;
     /**
      * {@snippet lang=c :
-     * #define VTIME 5
+     * #define VEOL 1
      * }
      */
-    public static int VTIME() {
-        return VTIME;
+    public static int VEOL() {
+        return VEOL;
     }
-    private static final int VMIN = (int)6L;
+    private static final int VEOL2 = (int)2L;
     /**
      * {@snippet lang=c :
-     * #define VMIN 6
+     * #define VEOL2 2
      * }
      */
-    public static int VMIN() {
-        return VMIN;
+    public static int VEOL2() {
+        return VEOL2;
     }
-    private static final int VSTART = (int)8L;
+    private static final int VERASE = (int)3L;
     /**
      * {@snippet lang=c :
-     * #define VSTART 8
+     * #define VERASE 3
      * }
      */
-    public static int VSTART() {
-        return VSTART;
+    public static int VERASE() {
+        return VERASE;
     }
-    private static final int VSTOP = (int)9L;
+    private static final int VWERASE = (int)4L;
     /**
      * {@snippet lang=c :
-     * #define VSTOP 9
+     * #define VWERASE 4
      * }
      */
-    public static int VSTOP() {
-        return VSTOP;
+    public static int VWERASE() {
+        return VWERASE;
+    }
+    private static final int VREPRINT = (int)6L;
+    /**
+     * {@snippet lang=c :
+     * #define VREPRINT 6
+     * }
+     */
+    public static int VREPRINT() {
+        return VREPRINT;
+    }
+    private static final int VINTR = (int)8L;
+    /**
+     * {@snippet lang=c :
+     * #define VINTR 8
+     * }
+     */
+    public static int VINTR() {
+        return VINTR;
+    }
+    private static final int VQUIT = (int)9L;
+    /**
+     * {@snippet lang=c :
+     * #define VQUIT 9
+     * }
+     */
+    public static int VQUIT() {
+        return VQUIT;
     }
     private static final int VSUSP = (int)10L;
     /**
@@ -203,59 +185,59 @@ public class ioctl_h {
     public static int VSUSP() {
         return VSUSP;
     }
-    private static final int VEOL = (int)11L;
+    private static final int VSTART = (int)12L;
     /**
      * {@snippet lang=c :
-     * #define VEOL 11
+     * #define VSTART 12
      * }
      */
-    public static int VEOL() {
-        return VEOL;
+    public static int VSTART() {
+        return VSTART;
     }
-    private static final int VREPRINT = (int)12L;
+    private static final int VSTOP = (int)13L;
     /**
      * {@snippet lang=c :
-     * #define VREPRINT 12
+     * #define VSTOP 13
      * }
      */
-    public static int VREPRINT() {
-        return VREPRINT;
+    public static int VSTOP() {
+        return VSTOP;
     }
-    private static final int VDISCARD = (int)13L;
+    private static final int VLNEXT = (int)14L;
     /**
      * {@snippet lang=c :
-     * #define VDISCARD 13
-     * }
-     */
-    public static int VDISCARD() {
-        return VDISCARD;
-    }
-    private static final int VWERASE = (int)14L;
-    /**
-     * {@snippet lang=c :
-     * #define VWERASE 14
-     * }
-     */
-    public static int VWERASE() {
-        return VWERASE;
-    }
-    private static final int VLNEXT = (int)15L;
-    /**
-     * {@snippet lang=c :
-     * #define VLNEXT 15
+     * #define VLNEXT 14
      * }
      */
     public static int VLNEXT() {
         return VLNEXT;
     }
-    private static final int VEOL2 = (int)16L;
+    private static final int VDISCARD = (int)15L;
     /**
      * {@snippet lang=c :
-     * #define VEOL2 16
+     * #define VDISCARD 15
      * }
      */
-    public static int VEOL2() {
-        return VEOL2;
+    public static int VDISCARD() {
+        return VDISCARD;
+    }
+    private static final int VMIN = (int)16L;
+    /**
+     * {@snippet lang=c :
+     * #define VMIN 16
+     * }
+     */
+    public static int VMIN() {
+        return VMIN;
+    }
+    private static final int VTIME = (int)17L;
+    /**
+     * {@snippet lang=c :
+     * #define VTIME 17
+     * }
+     */
+    public static int VTIME() {
+        return VTIME;
     }
     private static final int IGNBRK = (int)1L;
     /**
@@ -338,14 +320,23 @@ public class ioctl_h {
     public static int ICRNL() {
         return ICRNL;
     }
-    private static final int IXON = (int)1024L;
+    private static final int IXON = (int)512L;
     /**
      * {@snippet lang=c :
-     * #define IXON 1024
+     * #define IXON 512
      * }
      */
     public static int IXON() {
         return IXON;
+    }
+    private static final int IXOFF = (int)1024L;
+    /**
+     * {@snippet lang=c :
+     * #define IXOFF 1024
+     * }
+     */
+    public static int IXOFF() {
+        return IXOFF;
     }
     private static final int IXANY = (int)2048L;
     /**
@@ -355,15 +346,6 @@ public class ioctl_h {
      */
     public static int IXANY() {
         return IXANY;
-    }
-    private static final int IXOFF = (int)4096L;
-    /**
-     * {@snippet lang=c :
-     * #define IXOFF 4096
-     * }
-     */
-    public static int IXOFF() {
-        return IXOFF;
     }
     private static final int IMAXBEL = (int)8192L;
     /**
@@ -383,104 +365,113 @@ public class ioctl_h {
     public static int OPOST() {
         return OPOST;
     }
-    private static final int ONLCR = (int)4L;
+    private static final int ONLCR = (int)2L;
     /**
      * {@snippet lang=c :
-     * #define ONLCR 4
+     * #define ONLCR 2
      * }
      */
     public static int ONLCR() {
         return ONLCR;
     }
-    private static final int OCRNL = (int)8L;
+    private static final int OCRNL = (int)16L;
     /**
      * {@snippet lang=c :
-     * #define OCRNL 8
+     * #define OCRNL 16
      * }
      */
     public static int OCRNL() {
         return OCRNL;
     }
-    private static final int ONOCR = (int)16L;
+    private static final int ONOCR = (int)32L;
     /**
      * {@snippet lang=c :
-     * #define ONOCR 16
+     * #define ONOCR 32
      * }
      */
     public static int ONOCR() {
         return ONOCR;
     }
-    private static final int ONLRET = (int)32L;
+    private static final int ONLRET = (int)64L;
     /**
      * {@snippet lang=c :
-     * #define ONLRET 32
+     * #define ONLRET 64
      * }
      */
     public static int ONLRET() {
         return ONLRET;
     }
-    private static final int CSIZE = (int)48L;
+    private static final int CSIZE = (int)768L;
     /**
      * {@snippet lang=c :
-     * #define CSIZE 48
+     * #define CSIZE 768
      * }
      */
     public static int CSIZE() {
         return CSIZE;
     }
-    private static final int CS7 = (int)32L;
+    private static final int CS7 = (int)512L;
     /**
      * {@snippet lang=c :
-     * #define CS7 32
+     * #define CS7 512
      * }
      */
     public static int CS7() {
         return CS7;
     }
-    private static final int CS8 = (int)48L;
+    private static final int CS8 = (int)768L;
     /**
      * {@snippet lang=c :
-     * #define CS8 48
+     * #define CS8 768
      * }
      */
     public static int CS8() {
         return CS8;
     }
-    private static final int PARENB = (int)256L;
+    private static final int PARENB = (int)4096L;
     /**
      * {@snippet lang=c :
-     * #define PARENB 256
+     * #define PARENB 4096
      * }
      */
     public static int PARENB() {
         return PARENB;
     }
-    private static final int PARODD = (int)512L;
+    private static final int PARODD = (int)8192L;
     /**
      * {@snippet lang=c :
-     * #define PARODD 512
+     * #define PARODD 8192
      * }
      */
     public static int PARODD() {
         return PARODD;
     }
-    private static final int ISIG = (int)1L;
+    private static final int ECHOKE = (int)1L;
     /**
      * {@snippet lang=c :
-     * #define ISIG 1
+     * #define ECHOKE 1
      * }
      */
-    public static int ISIG() {
-        return ISIG;
+    public static int ECHOKE() {
+        return ECHOKE;
     }
-    private static final int ICANON = (int)2L;
+    private static final int ECHOE = (int)2L;
     /**
      * {@snippet lang=c :
-     * #define ICANON 2
+     * #define ECHOE 2
      * }
      */
-    public static int ICANON() {
-        return ICANON;
+    public static int ECHOE() {
+        return ECHOE;
+    }
+    private static final int ECHOK = (int)4L;
+    /**
+     * {@snippet lang=c :
+     * #define ECHOK 4
+     * }
+     */
+    public static int ECHOK() {
+        return ECHOK;
     }
     private static final int ECHO = (int)8L;
     /**
@@ -491,92 +482,74 @@ public class ioctl_h {
     public static int ECHO() {
         return ECHO;
     }
-    private static final int ECHOE = (int)16L;
+    private static final int ECHONL = (int)16L;
     /**
      * {@snippet lang=c :
-     * #define ECHOE 16
-     * }
-     */
-    public static int ECHOE() {
-        return ECHOE;
-    }
-    private static final int ECHOK = (int)32L;
-    /**
-     * {@snippet lang=c :
-     * #define ECHOK 32
-     * }
-     */
-    public static int ECHOK() {
-        return ECHOK;
-    }
-    private static final int ECHONL = (int)64L;
-    /**
-     * {@snippet lang=c :
-     * #define ECHONL 64
+     * #define ECHONL 16
      * }
      */
     public static int ECHONL() {
         return ECHONL;
     }
-    private static final int NOFLSH = (int)128L;
+    private static final int ECHOCTL = (int)64L;
     /**
      * {@snippet lang=c :
-     * #define NOFLSH 128
-     * }
-     */
-    public static int NOFLSH() {
-        return NOFLSH;
-    }
-    private static final int TOSTOP = (int)256L;
-    /**
-     * {@snippet lang=c :
-     * #define TOSTOP 256
-     * }
-     */
-    public static int TOSTOP() {
-        return TOSTOP;
-    }
-    private static final int ECHOCTL = (int)512L;
-    /**
-     * {@snippet lang=c :
-     * #define ECHOCTL 512
+     * #define ECHOCTL 64
      * }
      */
     public static int ECHOCTL() {
         return ECHOCTL;
     }
-    private static final int ECHOKE = (int)2048L;
+    private static final int ISIG = (int)128L;
     /**
      * {@snippet lang=c :
-     * #define ECHOKE 2048
+     * #define ISIG 128
      * }
      */
-    public static int ECHOKE() {
-        return ECHOKE;
+    public static int ISIG() {
+        return ISIG;
     }
-    private static final int PENDIN = (int)16384L;
+    private static final int ICANON = (int)256L;
     /**
      * {@snippet lang=c :
-     * #define PENDIN 16384
+     * #define ICANON 256
      * }
      */
-    public static int PENDIN() {
-        return PENDIN;
+    public static int ICANON() {
+        return ICANON;
     }
-    private static final int IEXTEN = (int)32768L;
+    private static final int IEXTEN = (int)1024L;
     /**
      * {@snippet lang=c :
-     * #define IEXTEN 32768
+     * #define IEXTEN 1024
      * }
      */
     public static int IEXTEN() {
         return IEXTEN;
     }
+    private static final int TOSTOP = (int)4194304L;
+    /**
+     * {@snippet lang=c :
+     * #define TOSTOP 4194304
+     * }
+     */
+    public static int TOSTOP() {
+        return TOSTOP;
+    }
+    private static final int PENDIN = (int)536870912L;
+    /**
+     * {@snippet lang=c :
+     * #define PENDIN 536870912
+     * }
+     */
+    public static int PENDIN() {
+        return PENDIN;
+    }
 
     /**
      * Variadic invoker class for:
      * {@snippet lang=c :
-     * extern int ioctl(int __fd, unsigned long __request, ...)
+     * int ioctl(int, unsigned long, ...)
      * }
      */
     public static class ioctl {
@@ -600,7 +573,7 @@ public class ioctl_h {
         /**
          * Variadic invoker factory for:
          * {@snippet lang=c :
-         * extern int ioctl(int __fd, unsigned long __request, ...)
+         * int ioctl(int, unsigned long, ...)
          * }
          */
         public static ioctl makeInvoker(MemoryLayout... layouts) {
@@ -625,12 +598,12 @@ public class ioctl_h {
             return descriptor;
         }
 
-        public int apply(int __fd, long __request, Object... x2) {
+        public int apply(int x0, long x1, Object... x2) {
             try {
                 if (TRACE_DOWNCALLS) {
-                    traceDowncall("ioctl", __fd, __request, x2);
+                    traceDowncall("ioctl", x0, x1, x2);
                 }
-                return (int)spreader.invokeExact(__fd, __request, x2);
+                return (int)spreader.invokeExact(x0, x1, x2);
             } catch(IllegalArgumentException | ClassCastException ex$)  {
                 throw ex$; // rethrow IAE from passing wrong number/type of args
             } catch (Throwable ex$) {
@@ -654,7 +627,7 @@ public class ioctl_h {
     /**
      * Function descriptor for:
      * {@snippet lang=c :
-     * extern int tcgetattr(int __fd, struct termios *__termios_p)
+     * int tcgetattr(int, struct termios *)
      * }
      */
     public static FunctionDescriptor tcgetattr$descriptor() {
@@ -664,7 +637,7 @@ public class ioctl_h {
     /**
      * Downcall method handle for:
      * {@snippet lang=c :
-     * extern int tcgetattr(int __fd, struct termios *__termios_p)
+     * int tcgetattr(int, struct termios *)
      * }
      */
     public static MethodHandle tcgetattr$handle() {
@@ -672,16 +645,16 @@ public class ioctl_h {
     }
     /**
      * {@snippet lang=c :
-     * extern int tcgetattr(int __fd, struct termios *__termios_p)
+     * int tcgetattr(int, struct termios *)
      * }
      */
-    public static int tcgetattr(int __fd, MemorySegment __termios_p) {
+    public static int tcgetattr(int x0, MemorySegment x1) {
         var mh$ = tcgetattr.HANDLE;
         try {
             if (TRACE_DOWNCALLS) {
-                traceDowncall("tcgetattr", __fd, __termios_p);
+                traceDowncall("tcgetattr", x0, x1);
             }
-            return (int)mh$.invokeExact(__fd, __termios_p);
+            return (int)mh$.invokeExact(x0, x1);
         } catch (Throwable ex$) {
            throw new AssertionError("should not reach here", ex$);
         }
@@ -703,7 +676,7 @@ public class ioctl_h {
     /**
      * Function descriptor for:
      * {@snippet lang=c :
-     * extern int tcsetattr(int __fd, int __optional_actions, const struct termios *__termios_p)
+     * int tcsetattr(int, int, const struct termios *)
      * }
      */
     public static FunctionDescriptor tcsetattr$descriptor() {
@@ -713,7 +686,7 @@ public class ioctl_h {
     /**
      * Downcall method handle for:
      * {@snippet lang=c :
-     * extern int tcsetattr(int __fd, int __optional_actions, const struct termios *__termios_p)
+     * int tcsetattr(int, int, const struct termios *)
      * }
      */
     public static MethodHandle tcsetattr$handle() {
@@ -721,19 +694,46 @@ public class ioctl_h {
     }
     /**
      * {@snippet lang=c :
-     * extern int tcsetattr(int __fd, int __optional_actions, const struct termios *__termios_p)
+     * int tcsetattr(int, int, const struct termios *)
      * }
      */
-    public static int tcsetattr(int __fd, int __optional_actions, MemorySegment __termios_p) {
+    public static int tcsetattr(int x0, int x1, MemorySegment x2) {
         var mh$ = tcsetattr.HANDLE;
         try {
             if (TRACE_DOWNCALLS) {
-                traceDowncall("tcsetattr", __fd, __optional_actions, __termios_p);
+                traceDowncall("tcsetattr", x0, x1, x2);
             }
-            return (int)mh$.invokeExact(__fd, __optional_actions, __termios_p);
+            return (int)mh$.invokeExact(x0, x1, x2);
         } catch (Throwable ex$) {
            throw new AssertionError("should not reach here", ex$);
         }
+    }
+    private static final long TIOCGETA = 1078490131L;
+    /**
+     * {@snippet lang=c :
+     * #define TIOCGETA 1078490131
+     * }
+     */
+    public static long TIOCGETA() {
+        return TIOCGETA;
+    }
+    private static final long TIOCSETA = 2152231956L;
+    /**
+     * {@snippet lang=c :
+     * #define TIOCSETA 2152231956
+     * }
+     */
+    public static long TIOCSETA() {
+        return TIOCSETA;
+    }
+    private static final int NOFLSH = (int)2147483648L;
+    /**
+     * {@snippet lang=c :
+     * #define NOFLSH 2147483648
+     * }
+     */
+    public static int NOFLSH() {
+        return NOFLSH;
     }
 }
 
