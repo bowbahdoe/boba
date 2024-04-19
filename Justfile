@@ -1,7 +1,7 @@
 extract:
     jextract \
         --output src/main/java \
-        --target-package dev.mccue.boba.c.mac \
+        --target-package dev.mccue.boba.c.linux \
         --include-struct termios \
         --include-function ioctl \
         --include-function tcgetattr \

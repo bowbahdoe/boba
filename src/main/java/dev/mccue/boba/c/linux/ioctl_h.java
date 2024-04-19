@@ -22,15 +22,15 @@ public class ioctl_h {
     static final boolean TRACE_DOWNCALLS = Boolean.getBoolean("jextract.trace.downcalls");
 
     static void traceDowncall(String name, Object... args) {
-        String traceArgs = Arrays.stream(args)
-                .map(Object::toString)
-                .collect(Collectors.joining(", "));
-        System.out.printf("%s(%s)\n", name, traceArgs);
+         String traceArgs = Arrays.stream(args)
+                       .map(Object::toString)
+                       .collect(Collectors.joining(", "));
+         System.out.printf("%s(%s)\n", name, traceArgs);
     }
 
     static MemorySegment findOrThrow(String symbol) {
         return SYMBOL_LOOKUP.find(symbol)
-                .orElseThrow(() -> new UnsatisfiedLinkError("unresolved symbol: " + symbol));
+            .orElseThrow(() -> new UnsatisfiedLinkError("unresolved symbol: " + symbol));
     }
 
     static MethodHandle upcallHandle(Class<?> fi, String name, FunctionDescriptor fdesc) {
@@ -68,6 +68,24 @@ public class ioctl_h {
     public static final AddressLayout C_POINTER = ValueLayout.ADDRESS
             .withTargetLayout(MemoryLayout.sequenceLayout(java.lang.Long.MAX_VALUE, JAVA_BYTE));
     public static final ValueLayout.OfLong C_LONG = ValueLayout.JAVA_LONG;
+    private static final int TCGETS = (int)21505L;
+    /**
+     * {@snippet lang=c :
+     * #define TCGETS 21505
+     * }
+     */
+    public static int TCGETS() {
+        return TCGETS;
+    }
+    private static final int TCSETS = (int)21506L;
+    /**
+     * {@snippet lang=c :
+     * #define TCSETS 21506
+     * }
+     */
+    public static int TCSETS() {
+        return TCSETS;
+    }
     private static final int EBADF = (int)9L;
     /**
      * {@snippet lang=c :
@@ -139,6 +157,24 @@ public class ioctl_h {
      */
     public static int VEOF() {
         return VEOF;
+    }
+    private static final int VTIME = (int)5L;
+    /**
+     * {@snippet lang=c :
+     * #define VTIME 5
+     * }
+     */
+    public static int VTIME() {
+        return VTIME;
+    }
+    private static final int VMIN = (int)6L;
+    /**
+     * {@snippet lang=c :
+     * #define VMIN 6
+     * }
+     */
+    public static int VMIN() {
+        return VMIN;
     }
     private static final int VSTART = (int)8L;
     /**
@@ -220,6 +256,24 @@ public class ioctl_h {
      */
     public static int VEOL2() {
         return VEOL2;
+    }
+    private static final int IGNBRK = (int)1L;
+    /**
+     * {@snippet lang=c :
+     * #define IGNBRK 1
+     * }
+     */
+    public static int IGNBRK() {
+        return IGNBRK;
+    }
+    private static final int BRKINT = (int)2L;
+    /**
+     * {@snippet lang=c :
+     * #define BRKINT 2
+     * }
+     */
+    public static int BRKINT() {
+        return BRKINT;
     }
     private static final int IGNPAR = (int)4L;
     /**
@@ -364,6 +418,15 @@ public class ioctl_h {
      */
     public static int ONLRET() {
         return ONLRET;
+    }
+    private static final int CSIZE = (int)48L;
+    /**
+     * {@snippet lang=c :
+     * #define CSIZE 48
+     * }
+     */
+    public static int CSIZE() {
+        return CSIZE;
     }
     private static final int CS7 = (int)32L;
     /**
@@ -521,7 +584,7 @@ public class ioctl_h {
                 ioctl_h.C_INT,
                 ioctl_h.C_INT,
                 ioctl_h.C_LONG
-        );
+            );
         private static final MemorySegment ADDR = ioctl_h.findOrThrow("ioctl");
 
         private final MethodHandle handle;
@@ -571,21 +634,21 @@ public class ioctl_h {
             } catch(IllegalArgumentException | ClassCastException ex$)  {
                 throw ex$; // rethrow IAE from passing wrong number/type of args
             } catch (Throwable ex$) {
-                throw new AssertionError("should not reach here", ex$);
+               throw new AssertionError("should not reach here", ex$);
             }
         }
     }
 
     private static class tcgetattr {
         public static final FunctionDescriptor DESC = FunctionDescriptor.of(
-                ioctl_h.C_INT,
-                ioctl_h.C_INT,
-                ioctl_h.C_POINTER
+            ioctl_h.C_INT,
+            ioctl_h.C_INT,
+            ioctl_h.C_POINTER
         );
 
         public static final MethodHandle HANDLE = Linker.nativeLinker().downcallHandle(
-                ioctl_h.findOrThrow("tcgetattr"),
-                DESC);
+                    ioctl_h.findOrThrow("tcgetattr"),
+                    DESC);
     }
 
     /**
@@ -620,21 +683,21 @@ public class ioctl_h {
             }
             return (int)mh$.invokeExact(__fd, __termios_p);
         } catch (Throwable ex$) {
-            throw new AssertionError("should not reach here", ex$);
+           throw new AssertionError("should not reach here", ex$);
         }
     }
 
     private static class tcsetattr {
         public static final FunctionDescriptor DESC = FunctionDescriptor.of(
-                ioctl_h.C_INT,
-                ioctl_h.C_INT,
-                ioctl_h.C_INT,
-                ioctl_h.C_POINTER
+            ioctl_h.C_INT,
+            ioctl_h.C_INT,
+            ioctl_h.C_INT,
+            ioctl_h.C_POINTER
         );
 
         public static final MethodHandle HANDLE = Linker.nativeLinker().downcallHandle(
-                ioctl_h.findOrThrow("tcsetattr"),
-                DESC);
+                    ioctl_h.findOrThrow("tcsetattr"),
+                    DESC);
     }
 
     /**
@@ -669,7 +732,8 @@ public class ioctl_h {
             }
             return (int)mh$.invokeExact(__fd, __optional_actions, __termios_p);
         } catch (Throwable ex$) {
-            throw new AssertionError("should not reach here", ex$);
+           throw new AssertionError("should not reach here", ex$);
         }
     }
 }
+
